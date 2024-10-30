@@ -12,19 +12,24 @@ ion-card {
     margin: 10px;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .btnAgregar {
     max-width: 300px;
     margin: 0 auto;
     margin-top: 20px;
 }
   
-.btnBorrar, .btnEditar {
-    width: 130px;
-    padding: 10px;
-}
-  
 .btnActualizar, .btnCancelar {
-    margin-left: 40%;
     margin-top: 25px;
     width: 300px;
+}
+
+.btnBorrar, .btnEditar {
+  width: 130px;
+  padding: 10px;
 }

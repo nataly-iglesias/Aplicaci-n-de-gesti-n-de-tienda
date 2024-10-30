@@ -41,11 +41,13 @@
     <ion-input [(ngModel)]="urlProducto"></ion-input>
   </ion-item>
 
+  <div class="container">
   <ion-button *ngIf="mostrarBoton" class="btnAgregar" color="dark" expand="block" (click)="Agregar()">Agregar Producto</ion-button>
 
   <ion-button *ngIf="actualizarBoton" class="btnActualizar" color="dark" expand="block" (click)="Actualizar()">Actualizar Producto</ion-button>
   <ion-button *ngIf="actualizarBoton" class="btnCancelar" color="danger" expand="block" (click)="Cancelar()">Cancelar</ion-button>
-
+  </div>
+  
   <!-- Lista de productos -->
   <ion-list>
     <ion-item *ngFor="let producto of productos; let i = index">
