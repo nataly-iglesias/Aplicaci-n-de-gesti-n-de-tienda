@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-card class="shop-card">
-    <ion-img [src]="valorUrl" *ngIf="valorUrl"></ion-img>
+    <ion-img [src]="valorUrl" *ngIf="valorUrl" ></ion-img>
     <ion-card-header>
       <ion-card-title>{{ valorNombreTienda }}</ion-card-title>
     </ion-card-header>
@@ -15,9 +15,11 @@
   <ion-list>
     <ion-item button (click)="navigateTo('clientes')">
       <ion-label>Clientes</ion-label>
+      <ion-icon name="person" color="white" size="small" aria-hidden="true"></ion-icon>
     </ion-item>
     <ion-item button (click)="navigateTo('home')">
       <ion-label>Productos</ion-label>
+      <ion-icon name="basket" color="white" aria-hidden="true"></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>
