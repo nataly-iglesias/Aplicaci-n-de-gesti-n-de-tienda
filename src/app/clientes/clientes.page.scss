@@ -1,0 +1,30 @@
+ion-toolbar {
+  --background: #000000;
+  --color: white;
+}
+
+ion-item {
+  margin: 10px 0;
+}
+
+ion-card {
+    max-width: 300px;
+    margin: 10px;
+}
+
+.btnAgregar {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+  
+.btnBorrar, .btnEditar {
+    width: 130px;
+    padding: 10px;
+}
+  
+.btnActualizar, .btnCancelar {
+    margin-left: 40%;
+    margin-top: 25px;
+    width: 300px;
+}

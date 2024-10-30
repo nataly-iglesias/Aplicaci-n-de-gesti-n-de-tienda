@@ -1,20 +1,66 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>PRODUCTOS</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/interfazprincipal">HOME</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- Formulario para agregar producto -->
+  <ion-item>
+    <ion-label position="floating">Nombre del Producto</ion-label>
+    <ion-input [(ngModel)]="valorNombre"></ion-input>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-textarea [(ngModel)]="valorDescripcion"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad</ion-label>
+    <ion-input type="number" [(ngModel)]="valorCantidad"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de Costo</ion-label>
+    <ion-input type="number" [(ngModel)]="valorPrecioCosto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de Venta</ion-label>
+    <ion-input type="number" [(ngModel)]="valorPrecioVenta"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">URL de Imagen</ion-label>
+    <ion-input [(ngModel)]="urlProducto"></ion-input>
+  </ion-item>
+
+  <ion-button *ngIf="mostrarBoton" class="btnAgregar" color="dark" expand="block" (click)="Agregar()">Agregar Producto</ion-button>
+
+  <ion-button *ngIf="actualizarBoton" class="btnActualizar" color="dark" expand="block" (click)="Actualizar()">Actualizar Producto</ion-button>
+  <ion-button *ngIf="actualizarBoton" class="btnCancelar" color="danger" expand="block" (click)="Cancelar()">Cancelar</ion-button>
+
+  <!-- Lista de productos -->
+  <ion-list>
+    <ion-item *ngFor="let producto of productos; let i = index">
+      <ion-card>
+        <img [src]="producto.url" alt="Imagen del producto" />
+        <ion-card-header>
+          <ion-card-title>{{ producto.nombre }}</ion-card-title>
+          <ion-card-subtitle>{{ producto.descripcion }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Cantidad: {{ producto.cantidad }}</p>
+          <p>Precio de Costo: {{ producto.precioCosto }}</p>
+          <p>Precio de Venta: {{ producto.precioVenta }}</p>
+          <ion-button class="btnBorrar" color="danger" fill="outline" (click)="Borrar(i)">Eliminar</ion-button>
+          <ion-button class="btnEditar" color="secondary" fill="outline" (click)="Editar(i)">Editar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CLIENTES</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/interfazprincipal">HOME</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario para agregar al cliente -->
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="valorNombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Dirección</ion-label>
+    <ion-input [(ngModel)]="valorDireccion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Teléfono</ion-label>
+    <ion-input type="number" [(ngModel)]="valorTelefono"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input [(ngModel)]="valorCorreo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">URL de la foto de perfil</ion-label>
+    <ion-input [(ngModel)]="urlCliente"></ion-input>
+  </ion-item>
+
+  <ion-button *ngIf="mostrarBoton" class="btnAgregar" color="dark" expand="block" (click)="Agregar()">Agregar Cliente</ion-button>
+
+  <ion-button *ngIf="actualizarBoton" class="btnActualizar" color="dark" expand="block" (click)="Actualizar()">Actualizar Producto</ion-button>
+  <ion-button *ngIf="actualizarBoton" class="btnCancelar" color="danger" expand="block" (click)="Cancelar()">Cancelar</ion-button>
+
+  <!-- Lista de clientes -->
+  <ion-list>
+    <ion-item *ngFor="let cliente of clientes; let i = index">
+      <ion-card>
+        <img [src]="cliente.url" alt="Imagen del cliente" />
+        <ion-card-header>
+          <ion-card-title>{{ cliente.nombre }}</ion-card-title>
+          <ion-card-subtitle> Dirección: {{ cliente.direccion }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Teléfono: {{ cliente.telefono }}</p>
+          <p>Correo: {{ cliente.correo }}</p>
+          <ion-button class="btnBorrar" color="danger" fill="outline" (click)="Borrar(i)">Eliminar</ion-button>
+          <ion-button class="btnEditar" color="secondary" fill="outline" (click)="Editar(i)">Editar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
